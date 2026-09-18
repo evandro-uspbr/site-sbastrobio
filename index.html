@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedade Brasileira de Astrobiologia - SBAst</title>
+    <style>
+        /* Estilos Globais e Tema Astrobiologia */
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text-light: #e6f1ff;
+            --text-dim: #8892b0;
+            --white: #ffffff;
+            --purple-event: #8a2be2;
+            --gold: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+        }
+
+        body {
+            /* Imagem fixa cobrindo todo o fundo do site */
+            background: linear-gradient(rgba(10, 25, 47, 0.82), rgba(10, 25, 47, 0.82)), 
+                        url('flyer2.jpg') center/cover no-repeat fixed;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho Fixo */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            padding: 0.8rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .btn-nav {
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            color: var(--accent) !important;
+            transition: all 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Seção Hero (Apresentação principal) */
+        .hero {
+            margin-top: 65px;
+            min-height: calc(100vh - 65px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 1rem;
+            background: transparent;
+        }
+
+        .hero-logo {
+            max-width: 380px;
+            width: 90%;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-action {
+            padding: 0.9rem 2rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background-color: #52e0c4;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Seções de Conteúdo */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* Seção Reunião Anual */
+        #reuniao {
+            background-color: rgba(23, 42, 69, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .event-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .event-flyer {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .event-info h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .event-details-list {
+            list-style: none;
+            margin: 1.5rem 0 2.5rem 0;
+        }
+
+        .event-details-list li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .external-btn {
+            background-color: #6122d2;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .external-btn:hover {
+            background-color: #742bf0;
+            transform: translateY(-3px);
+        }
+
+        /* Seção Prêmio Destaque - Totalmente Transparente para revelar o flyer2 */
+        #premio {
+            background: transparent;
+        }
+
+        .premio-card {
+            background: rgba(23, 42, 69, 0.75);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .premio-card h3 {
+            color: var(--white);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .premio-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .premio-deadline {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        /* Seção Filiação - Fundo opaco com o card vazado/transparente */
+#filiacao {
+    background-color: rgba(23, 42, 69, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.filiacao-card {
+    /* Aplica a mesma imagem com alinhamento fixo em relação à janela do navegador */
+    background: linear-gradient(rgba(10, 25, 47, 0.82), rgba(10, 25, 47, 0.82)), 
+                url('flyer2.jpg') center/cover no-repeat fixed;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    border-radius: 12px;
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+        .filiacao-card h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .filiacao-card p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background: rgba(6, 13, 26, 0.95);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 768px) {
+            .event-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .event-details-list li {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <a href="#home">
+            <img src="logo fundo escuro.png" alt="SBAstrobio Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#reuniao">IX Reunião Anual</a></li>
+                <li><a href="#premio">Prêmio Destaque</a></li>
+                <li><a href="#filiacao" class="btn-nav">Seja Filiado</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PÁGINA INICIAL (HERO) -->
+    <div id="home" class="hero">
+        <img src="logo fundo escuro.png" alt="Sociedade Brasileira de Astrobiologia" class="hero-logo">
+        <h1>Sociedade Brasileira de Astrobiologia</h1>
+        <p>Promovendo a cooperação científica e a pesquisa das origens, evolução e distribuição da vida no Universo.</p>
+
+        <div class="hero-buttons">
+            <a href="#reuniao" class="btn-action btn-primary">Inscrição na IX Reunião Anual</a>
+            <a href="#premio" class="btn-action btn-secondary">Prêmio Destaque Pós-Graduação</a>
+            <a href="#filiacao" class="btn-action btn-secondary">Formulário de Filiação</a>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1: REUNIÃO ANUAL -->
+    <section id="reuniao">
+        <h1 class="section-title">IX Reunião Anual da SBAstrobio</h1>
+        <p class="section-subtitle">O encontro oficial da comunidade brasileira de astrobiologia.</p>
+
+        <div class="event-container">
+            <div>
+                <img src="flyer.jpg" alt="Flyer IX Reunião Anual SBAstrobio" class="event-flyer">
+            </div>
+
+            <div class="event-info">
+                <h2>Inscrições Abertas!</h2>
+                <ul class="event-details-list">
+                    <li>📅 <strong>Data:</strong> 11 a 13 de Novembro de 2026</li>
+                    <li>📍 <strong>Local:</strong> Itajubá, MG</li>
+                    <li>🤝 <strong>Parceria:</strong> LNA (Laboratório Nacional de Astrofísica) & UNIFEI</li>
+                    <li>📝 <strong>Submissão de Trabalhos:</strong> Até 16 de outubro</li>
+                </ul>
+
+                <!-- Link externo para a Even3 -->
+                <a href="https://www.even3.com.br/ix-reuniao-anual-da-sbastrobio-720334/" target="_blank" rel="noopener noreferrer" class="external-btn">
+                    Inscrição e Submissão de Trabalho
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: PRÊMIO DESTAQUE -->
+    <section id="premio">
+        <h1 class="section-title">Prêmio Destaque de Pós-Graduação em Astrobiologia</h1>
+        <p class="section-subtitle">Reconhecimento das melhores pesquisas acadêmicas desenvolvidas nos programas de pós-graduação pelo país.</p>
+
+        <div class="premio-card">
+            <h3>Inscrições Abertas</h3>
+            <p>Se você defendeu sua pesquisa de mestrado ou doutorado na área de astrobiologia entre 26 de agosto de 2023 e 25 de agosto de 2026, submeta seu trabalho para concorrer ao prêmio oficial de reconhecimento concedido pela SBAstrobio.</p>
+            
+            <div class="premio-deadline">
+            Inscrições até 01/10/2026
+            </div>
+
+            <div>
+                <a href="https://forms.gle/NYYYipW4JVKJbMut6" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    Inscrever-se no Prêmio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: FILIAÇÃO -->
+    <section id="filiacao">
+        <h1 class="section-title">Filiação à SBAstrobio</h1>
+        <p class="section-subtitle">Junte-se à Sociedade Brasileira de Astrobiologia para apoiar o desenvolvimento da ciência no país.</p>
+
+        <div class="filiacao-card">
+            <h3>Torne-se um Membro Oficial</h3>
+            <p>A filiação é aberta a estudantes de graduação, pós-graduação, pesquisadores, docentes e entusiastas da astrobiologia. Membros filiados possuem acesso a eventos e iniciativas da sociedade.</p>
+
+            <!-- COLOQUE SEU LINK DO GOOGLE FORMS ABAIXO NO 'href' -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfKMuGjY0hSqU-10U7vCIKIIlAWFy6daqiwyMgwoiUkFLpCYA/viewform" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                Preencher Formulário de Filiação
+            </a>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Sociedade Brasileira de Astrobiologia<br> contato@sbastrobio.org <br> Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
